@@ -622,7 +622,8 @@ impl Service<Uri> for ConnectorService {
     }
 
     fn call(&mut self, dst: Uri) -> Self::Future {
-        log::debug!("starting new connection: {dst:?}");
+        // 
+        // log::debug!("starting new connection: {dst:?}");
         let timeout = self.simple_timeout;
         for prox in self.proxies.iter() {
             if let Some(proxy_scheme) = prox.intercept(&dst) {
